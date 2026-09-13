@@ -1,74 +1,13 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "sections": {
-    "hero": {
-      "type": "hero",
-      "blocks": {
-        "slide-1": {
-          "type": "slide",
-          "settings": {
-            "heading": "Furniture made for better living.",
-            "subheading": "Thoughtfully designed pieces crafted with natural materials, timeless forms, and everyday comfort in mind.",
-            "primary_label": "Shop Furniture",
-            "secondary_label": "Explore Collection"
-          }
-        }
-      },
-      "block_order": ["slide-1"]
-    },
-    "marquee-1": {
-      "type": "marquee-banner",
-      "settings": { "background": "#ffffff" }
-    },
-    "info-cards": {
-      "type": "info-cards"
-    },
-    "collection-carousel": {
-      "type": "collection-carousel"
-    },
-    "favorites": {
-      "type": "featured-products"
-    },
-    "highlight": {
-      "type": "image-highlight"
-    },
-    "collection-banner": {
-      "type": "collection-banner",
-      "settings": {
-        "eyebrow": "MATERIALS MATTER",
-        "heading": "Made for long summer days.",
-        "body": "Bring the feeling of open-air living home with furniture designed for slow lunches, warm evenings, and everything in between.",
-        "button_label": "Shop Summer Collection"
-      }
-    },
-    "marquee-2": {
-      "type": "marquee-banner",
-      "settings": { "background": "#f8ecec" }
-    },
-    "materials-cards": {
-      "type": "materials-cards"
-    },
-    "social-gallery": {
-      "type": "social-gallery"
-    },
-    "journal": {
-      "type": "journal"
-    },
-    "newsletter": {
-      "type": "newsletter"
-    }
-  },
-  "order": [
-    "hero",
-    "marquee-1",
-    "info-cards",
-    "collection-carousel",
-    "favorites",
-    "highlight",
-    "collection-banner",
-    "marquee-2",
-    "materials-cards",
-    "social-gallery",
-    "journal",
-    "newsletter"
-  ]
+  "sections": {},
+  "order": []
 }
