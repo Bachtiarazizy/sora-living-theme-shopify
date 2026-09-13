@@ -8,6 +8,91 @@
  * ------------------------------------------------------------
  */
 {
-  "sections": {},
-  "order": []
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "blocks": {
+        "slide-1": {
+          "type": "slide",
+          "settings": {
+            "heading": "Furniture made for better living.",
+            "subheading": "Thoughtfully designed pieces crafted with natural materials, timeless forms, and everyday comfort in mind.",
+            "primary_label": "Shop Furniture",
+            "secondary_label": "Explore Collection"
+          }
+        }
+      },
+      "block_order": [
+        "slide-1"
+      ],
+      "settings": {}
+    },
+    "marquee-1": {
+      "type": "marquee-banner",
+      "settings": {
+        "background": "#ffffff"
+      }
+    },
+    "info-cards": {
+      "type": "info-cards",
+      "settings": {}
+    },
+    "collection-carousel": {
+      "type": "collection-carousel",
+      "settings": {}
+    },
+    "favorites": {
+      "type": "featured-products",
+      "settings": {}
+    },
+    "highlight": {
+      "type": "image-highlight",
+      "settings": {}
+    },
+    "collection-banner": {
+      "type": "collection-banner",
+      "settings": {
+        "eyebrow": "MATERIALS MATTER",
+        "heading": "Made for long summer days.",
+        "body": "Bring the feeling of open-air living home with furniture designed for slow lunches, warm evenings, and everything in between.",
+        "button_label": "Shop Summer Collection"
+      }
+    },
+    "marquee-2": {
+      "type": "marquee-banner",
+      "settings": {
+        "background": "#f8ecec"
+      }
+    },
+    "materials-cards": {
+      "type": "materials-cards",
+      "settings": {}
+    },
+    "social-gallery": {
+      "type": "social-gallery",
+      "settings": {}
+    },
+    "journal": {
+      "type": "journal",
+      "settings": {}
+    },
+    "newsletter": {
+      "type": "newsletter",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "marquee-1",
+    "info-cards",
+    "collection-carousel",
+    "favorites",
+    "highlight",
+    "collection-banner",
+    "marquee-2",
+    "materials-cards",
+    "social-gallery",
+    "journal",
+    "newsletter"
+  ]
 }
