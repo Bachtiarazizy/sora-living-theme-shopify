@@ -34,29 +34,79 @@
 {
   "name": "Image highlight",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "THE SORA LIVING APPROACH" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Beautiful furniture starts with better choices." },
-    { "type": "text", "id": "button_label", "label": "Button label", "default": "Discover Our Craft" },
-    { "type": "url", "id": "button_link", "label": "Button link" },
-    { "type": "image_picker", "id": "image", "label": "Image" }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "THE SORA LIVING APPROACH"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Beautiful furniture starts with better choices."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Discover Our Craft"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
   ],
   "blocks": [
     {
       "type": "feature",
       "name": "Feature",
       "settings": [
-        { "type": "text", "id": "title", "label": "Title", "default": "Natural Materials" },
-        { "type": "textarea", "id": "body", "label": "Body", "default": "Materials selected for their character, texture, and durability." }
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Natural Materials"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body",
+          "default": "Materials selected for their character, texture, and durability."
+        }
       ]
     }
   ],
   "default": {
     "blocks": [
-      { "type": "feature", "settings": { "title": "Natural Materials", "body": "Materials selected for their character, texture, and durability." } },
-      { "type": "feature", "settings": { "title": "Considered Design", "body": "Simple forms designed to work beautifully across different spaces." } },
-      { "type": "feature", "settings": { "title": "Made for Living", "body": "Comfortable, functional pieces created for everyday use." } }
+      {
+        "type": "feature",
+        "settings": {
+          "title": "Natural Materials",
+          "body": "Materials selected for their character, texture, and durability."
+        }
+      },
+      {
+        "type": "feature",
+        "settings": {
+          "title": "Considered Design",
+          "body": "Simple forms designed to work beautifully across different spaces."
+        }
+      },
+      {
+        "type": "feature",
+        "settings": {
+          "title": "Made for Living",
+          "body": "Comfortable, functional pieces created for everyday use."
+        }
+      }
     ]
-  },
-  "presets": [{ "name": "Image highlight" }]
+  }
 }
 {% endschema %}

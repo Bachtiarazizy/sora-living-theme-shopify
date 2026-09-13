@@ -32,29 +32,76 @@
 {
   "name": "Social gallery",
   "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "@SORA LIVING" },
-    { "type": "text", "id": "heading", "label": "Heading", "default": "Life, styled naturally." }
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "@SORA LIVING"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Life, styled naturally."
+    }
   ],
   "blocks": [
     {
       "type": "post",
       "name": "Post",
       "settings": [
-        { "type": "image_picker", "id": "image", "label": "Image" },
-        { "type": "url", "id": "link", "label": "Link" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Natural Teak" },
-        { "type": "textarea", "id": "body", "label": "Body (first post only)" }
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Natural Teak"
+        },
+        {
+          "type": "textarea",
+          "id": "body",
+          "label": "Body (first post only)"
+        }
       ]
     }
   ],
   "default": {
     "blocks": [
-      { "type": "post", "settings": { "title": "Natural Teak", "body": "Warm tones, distinctive grain, and naturally enduring character." } },
-      { "type": "post", "settings": { "title": "Natural Teak" } },
-      { "type": "post", "settings": { "title": "Natural Teak" } },
-      { "type": "post", "settings": { "title": "Natural Teak" } }
+      {
+        "type": "post",
+        "settings": {
+          "title": "Natural Teak",
+          "body": "Warm tones, distinctive grain, and naturally enduring character."
+        }
+      },
+      {
+        "type": "post",
+        "settings": {
+          "title": "Natural Teak"
+        }
+      },
+      {
+        "type": "post",
+        "settings": {
+          "title": "Natural Teak"
+        }
+      },
+      {
+        "type": "post",
+        "settings": {
+          "title": "Natural Teak"
+        }
+      }
     ]
-  },
-  "presets": [{ "name": "Social gallery" }]
+  }
 }
 {% endschema %}
