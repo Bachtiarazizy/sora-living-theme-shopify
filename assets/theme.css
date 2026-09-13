@@ -108,6 +108,18 @@ p { margin: 0; }
    Header
    ========================================================================== */
 .site-header { position: relative; z-index: 40; }
+.site-header--overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+}
+.site-header--overlay .navbar { background: transparent; }
+.site-header--overlay .navbar__link-item a,
+.site-header--overlay .navbar__logo,
+.site-header--overlay .navbar__icon-item {
+  color: #fff;
+}
+.site-header--overlay .navbar__mobile-toggle span { background: #fff; }
 .announcement-bar {
   background: var(--color-brown-900);
   color: #fff;
@@ -164,13 +176,13 @@ p { margin: 0; }
 /* ==========================================================================
    Hero
    ========================================================================== */
-.hero { position: relative; height: 832px; max-height: 90vh; overflow: hidden; padding: 32px; display: flex; }
+.hero { position: relative; min-height: 100vh; overflow: hidden; padding: 0; display: flex; }
 .hero__slides { position: relative; width: 100%; height: 100%; }
 .hero__slide {
   position: absolute; inset: 0;
   display: none;
   flex-direction: column; align-items: center; justify-content: flex-end;
-  padding: 0 0 40px;
+  padding: 0 0 64px;
 }
 .hero__slide.is-active { display: flex; }
 .hero__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -187,7 +199,6 @@ p { margin: 0; }
 .hero__dot.is-active { background: var(--color-accent); }
 
 @media (max-width: 700px) {
-  .hero { height: 620px; padding: 16px; }
   .hero__heading { font-size: 36px; }
 }
 

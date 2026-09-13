@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
+  /* ---------- Transparent header overlay on hero ---------- */
+  var heroSection = document.querySelector('#MainContent .hero');
+  var siteHeader = document.querySelector('.site-header');
+  if (heroSection && siteHeader) {
+    siteHeader.classList.add('site-header--overlay');
+  }
+
   /* ---------- Mobile menu toggle ---------- */
   var toggle = document.querySelector('.navbar__mobile-toggle');
   var mobileMenu = document.getElementById('MobileMenu');
