@@ -15,10 +15,13 @@
         "slide-1": {
           "type": "slide",
           "settings": {
+            "image": "shopify://shop_images/ChatGPT_Image_Sep_4_2026_01_44_52_AM.png",
             "heading": "Furniture made for better living.",
             "subheading": "Thoughtfully designed pieces crafted with natural materials, timeless forms, and everyday comfort in mind.",
             "primary_label": "Shop Furniture",
-            "secondary_label": "Explore Collection"
+            "primary_link": "",
+            "secondary_label": "Explore Collection",
+            "secondary_link": ""
           }
         }
       },
@@ -35,27 +38,47 @@
     },
     "info-cards": {
       "type": "info-cards",
-      "settings": {}
+      "settings": {
+        "heading": "Designed with intention. Made to last."
+      }
     },
     "collection-carousel": {
       "type": "collection-carousel",
-      "settings": {}
+      "settings": {
+        "eyebrow": "CUSTOMER FAVORITES",
+        "heading": "Curated for every corner."
+      }
     },
     "favorites": {
       "type": "featured-products",
-      "settings": {}
+      "settings": {
+        "eyebrow": "CUSTOMER FAVORITES",
+        "heading": "Pieces people love to live with.",
+        "button_label": "Shop Best Sellers",
+        "button_link": "",
+        "background": "#f6ecec",
+        "collection": "",
+        "products_to_show": 3
+      }
     },
     "highlight": {
       "type": "image-highlight",
-      "settings": {}
+      "settings": {
+        "eyebrow": "THE SORA LIVING APPROACH",
+        "heading": "Beautiful furniture starts with better choices.",
+        "button_label": "Discover Our Craft",
+        "button_link": ""
+      }
     },
     "collection-banner": {
       "type": "collection-banner",
       "settings": {
+        "image_position": "left",
         "eyebrow": "MATERIALS MATTER",
         "heading": "Made for long summer days.",
         "body": "Bring the feeling of open-air living home with furniture designed for slow lunches, warm evenings, and everything in between.",
-        "button_label": "Shop Summer Collection"
+        "button_label": "Shop Summer Collection",
+        "button_link": ""
       }
     },
     "marquee-2": {
@@ -66,19 +89,35 @@
     },
     "materials-cards": {
       "type": "materials-cards",
-      "settings": {}
+      "settings": {
+        "heading": "The beauty is in the details."
+      }
     },
     "social-gallery": {
       "type": "social-gallery",
-      "settings": {}
+      "settings": {
+        "eyebrow": "@SORA LIVING",
+        "heading": "Life, styled naturally."
+      }
     },
     "journal": {
       "type": "journal",
-      "settings": {}
+      "settings": {
+        "eyebrow": "THE SORA JOURNAL",
+        "heading": "Ideas for living well.",
+        "background": "#f6ecec",
+        "blog": "",
+        "articles_to_show": 3,
+        "button_label": "View more articles"
+      }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "eyebrow": "STAY INSPIRED",
+        "heading": "Bring better living home.",
+        "body": "Get new collection launches, design inspiration, and selected offers delivered to your inbox."
+      }
     }
   },
   "order": [
