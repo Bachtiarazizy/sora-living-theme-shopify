@@ -1,0 +1,82 @@
+<header class="site-header" data-node-ref="8005:2000">
+  {%- if section.settings.announcement_text != blank -%}
+    <div class="announcement-bar">
+      <p class="announcement-bar__text">{{ section.settings.announcement_text }}</p>
+      {%- if section.settings.announcement_link != blank -%}
+        <a href="{{ section.settings.announcement_link }}" class="announcement-bar__link">
+          {{ section.settings.announcement_link_text | default: 'Explore the Collection' }}
+          {% render 'icon-arrow-right', color: 'white' %}
+        </a>
+      {%- endif -%}
+    </div>
+  {%- endif -%}
+
+  <div class="navbar">
+    <nav class="navbar__links" aria-label="Primary">
+      {%- for link in section.settings.main_menu.links -%}
+        <div class="navbar__link-item">
+          <a href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title }}</a>
+          {%- if link.links != blank -%}
+            {% render 'icon-caret-down' %}
+            <ul class="navbar__submenu">
+              {%- for childlink in link.links -%}
+                <li><a href="{{ childlink.url }}">{{ childlink.title }}</a></li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      {%- endfor -%}
+    </nav>
+
+    <a href="{{ routes.root_url }}" class="navbar__logo">
+      {%- if section.settings.logo != blank -%}
+        <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" width="{{ section.settings.logo.width }}" height="{{ section.settings.logo.height }}" loading="eager">
+      {%- else -%}
+        {{ shop.name | upcase }}
+      {%- endif -%}
+    </a>
+
+    <div class="navbar__icons">
+      <a href="{{ routes.search_url }}" class="navbar__icon-item">
+        {% render 'icon-search' %}
+        <span>Search</span>
+      </a>
+      <a href="{{ routes.cart_url }}" class="navbar__icon-item" id="header-cart-icon">
+        {% render 'icon-cart' %}
+        <span>Cart{% if cart.item_count > 0 %} ({{ cart.item_count }}){% endif %}</span>
+      </a>
+      {%- if shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="navbar__icon-item">
+          {% render 'icon-user' %}
+          <span>Account</span>
+        </a>
+      {%- endif -%}
+    </div>
+
+    <button class="navbar__mobile-toggle" aria-label="Menu" aria-expanded="false" aria-controls="MobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div id="MobileMenu" class="mobile-menu">
+    {%- for link in section.settings.main_menu.links -%}
+      <a href="{{ link.url }}">{{ link.title }}</a>
+      {%- for childlink in link.links -%}
+        <a href="{{ childlink.url }}" class="mobile-menu__sublink">{{ childlink.title }}</a>
+      {%- endfor -%}
+    {%- endfor -%}
+  </div>
+</header>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "main_menu", "label": "Menu", "default": "main-menu" },
+    { "type": "text", "id": "announcement_text", "label": "Announcement text", "default": "Thoughtfully crafted furniture for everyday living." },
+    { "type": "url", "id": "announcement_link", "label": "Announcement link" },
+    { "type": "text", "id": "announcement_link_text", "label": "Announcement link text", "default": "Explore the Collection" }
+  ]
+}
+{% endschema %}

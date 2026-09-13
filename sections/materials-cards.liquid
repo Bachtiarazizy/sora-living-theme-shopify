@@ -1,0 +1,54 @@
+<section class="materials page-width">
+  <div class="section-heading section-heading--split">
+    <h2>{{ section.settings.heading }}</h2>
+    <div class="carousel-nav">
+      <button class="carousel-nav__btn" data-carousel-prev="MaterialsTrack-{{ section.id }}" aria-label="Previous">{% render 'icon-arrow-right', color: '#271607' %}</button>
+      <button class="carousel-nav__btn" data-carousel-next="MaterialsTrack-{{ section.id }}" aria-label="Next">{% render 'icon-arrow-right', color: '#271607' %}</button>
+    </div>
+  </div>
+
+  <div class="materials__grid" id="MaterialsTrack-{{ section.id }}">
+    {%- for block in section.blocks -%}
+      <div class="material-card{% if block.settings.image == blank %} material-card--solid{% endif %}" {{ block.shopify_attributes }}>
+        {%- if block.settings.image != blank -%}
+          <img class="material-card__bg" src="{{ block.settings.image | image_url: width: 700 }}" alt="" loading="lazy" width="700" height="700">
+          <div class="material-card__scrim"></div>
+        {%- endif -%}
+        <div class="material-card__icon">{{ block.settings.icon_svg }}</div>
+        <div class="material-card__text">
+          <p class="material-card__title">{{ block.settings.title }}</p>
+          <p class="material-card__body">{{ block.settings.body }}</p>
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Materials cards",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "The beauty is in the details." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Background image (optional)" },
+        { "type": "html", "id": "icon_svg", "label": "Icon (SVG code)" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Natural Teak" },
+        { "type": "textarea", "id": "body", "label": "Body", "default": "Warm tones, distinctive grain, and naturally enduring character." }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "card", "settings": { "title": "Natural Teak", "body": "Warm tones, distinctive grain, and naturally enduring character." } },
+      { "type": "card", "settings": { "title": "Solid Wood", "body": "Strong, tactile, and designed to become more beautiful with time." } },
+      { "type": "card", "settings": { "title": "Natural Textiles", "body": "Soft textures that add warmth and depth to everyday spaces." } }
+    ]
+  },
+  "presets": [{ "name": "Materials cards" }]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+{
+  "current": {
+    "color_primary": "#271607",
+    "color_accent": "#ba4b40",
+    "color_background": "#ffffff",
+    "color_section_alt": "#f6ecec"
+  },
+  "presets": {
+    "Default": {
+      "color_primary": "#271607",
+      "color_accent": "#ba4b40",
+      "color_background": "#ffffff",
+      "color_section_alt": "#f6ecec"
+    }
+  }
+}

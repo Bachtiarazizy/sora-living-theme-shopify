@@ -1,0 +1,16 @@
+<section class="account-page page-width account-page--narrow">
+  <h1>Login</h1>
+  {%- form 'customer_login' -%}
+    {%- if form.errors -%}<p class="form-error">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <label>Email<input type="email" name="customer[email]" required></label>
+    {%- if form.password_needed -%}
+      <label>Password<input type="password" name="customer[password]" required></label>
+    {%- endif -%}
+    <button type="submit" class="btn btn--primary">Sign In</button>
+  {%- endform -%}
+  <p><a href="{{ routes.account_recover_url }}">Forgot your password?</a></p>
+  {%- if shop.customer_accounts_optional or shop.checkout.guest_login -%}
+    <p><a href="{{ routes.account_register_url }}">Create account</a></p>
+  {%- endif -%}
+</section>
+{% schema %}{ "name": "Login", "settings": [] }{% endschema %}

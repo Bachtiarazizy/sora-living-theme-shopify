@@ -1,0 +1,53 @@
+{%- comment -%}
+  Accepts: product (product object, may be blank for placeholder)
+{%- endcomment -%}
+<div class="favorite-card">
+  <div class="favorite-card__image-wrap">
+    {%- if product != blank and product.featured_image != blank -%}
+      <img src="{{ product.featured_image | image_url: width: 700 }}" alt="{{ product.featured_image.alt | escape }}" loading="lazy" width="700" height="700">
+    {%- else -%}
+      <div class="favorite-card__placeholder"></div>
+    {%- endif -%}
+    <button class="favorite-card__wishlist" aria-label="Add to wishlist" type="button">
+      {% render 'icon-heart' %}
+    </button>
+  </div>
+
+  {%- if product != blank -%}
+    <favorite-product-form class="favorite-card__info">
+      {%- form 'product', product -%}
+        <div class="favorite-card__name-price">
+          <p class="favorite-card__name">{{ product.title }}</p>
+          <p class="favorite-card__price">{{ product.price | money }}</p>
+        </div>
+        {%- if product.type != blank -%}
+          <p class="favorite-card__meta">{{ product.type }}</p>
+        {%- endif -%}
+
+        <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+
+        <div class="favorite-card__cart-row">
+          <div class="qty-selector">
+            <button type="button" class="qty-selector__btn" data-qty-minus aria-label="Decrease quantity">{% render 'icon-minus' %}</button>
+            <span class="qty-selector__value" data-qty-value>1</span>
+            <input type="number" name="quantity" value="1" min="1" class="visually-hidden" data-qty-input>
+            <button type="button" class="qty-selector__btn" data-qty-plus aria-label="Increase quantity">{% render 'icon-plus' %}</button>
+          </div>
+
+          <button type="submit" class="btn btn--add-to-cart"{% unless product.available %} disabled{% endunless %}>
+            {% render 'icon-cart', color: 'white' %}
+            <span>{% if product.available %}Add to Cart{% else %}Sold out{% endif %}</span>
+          </button>
+        </div>
+      {%- endform -%}
+    </favorite-product-form>
+  {%- else -%}
+    <div class="favorite-card__info">
+      <div class="favorite-card__name-price">
+        <p class="favorite-card__name">Sample Product</p>
+        <p class="favorite-card__price">$0.00</p>
+      </div>
+      <p class="favorite-card__meta">Add a collection in section settings</p>
+    </div>
+  {%- endif -%}
+</div>

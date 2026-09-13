@@ -1,0 +1,33 @@
+<section class="collection-page page-width">
+  <div class="section-heading section-heading--center">
+    <h1>{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="collection-page__description">{{ collection.description }}</div>
+    {%- endif -%}
+  </div>
+
+  {%- paginate collection.products by 24 -%}
+    {%- if collection.products.size > 0 -%}
+      <div class="collection-page__grid">
+        {%- for product in collection.products -%}
+          {% render 'favorite-product-card', product: product %}
+        {%- endfor -%}
+      </div>
+    {%- else -%}
+      <p class="collection-page__empty">No products found in this collection.</p>
+    {%- endif -%}
+
+    {%- if paginate.pages > 1 -%}
+      <nav class="pagination" aria-label="Pagination">
+        {{ paginate | default_pagination }}
+      </nav>
+    {%- endif -%}
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{
+  "name": "Collection pages",
+  "settings": []
+}
+{% endschema %}

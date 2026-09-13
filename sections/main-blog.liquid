@@ -1,0 +1,32 @@
+<section class="blog-page page-width">
+  <h1 class="section-heading section-heading--center">{{ blog.title }}</h1>
+  <div class="journal__grid">
+    {%- paginate blog.articles by 12 -%}
+      {%- for article in blog.articles -%}
+        <article class="journal-card">
+          <a href="{{ article.url }}" class="journal-card__image-wrap">
+            {%- if article.image != blank -%}
+              <img src="{{ article.image | image_url: width: 700 }}" alt="{{ article.title | escape }}" loading="lazy" width="700" height="700">
+            {%- else -%}
+              <div class="journal-card__placeholder"></div>
+            {%- endif -%}
+            <div class="journal-card__scrim"></div>
+          </a>
+          <div class="journal-card__text">
+            <h3 class="journal-card__title">{{ article.title }}</h3>
+            <a href="{{ article.url }}" class="journal-card__link">
+              Read Article
+              {% render 'icon-arrow-right', color: '#0a0a0a' %}
+            </a>
+          </div>
+        </article>
+      {%- endfor -%}
+      {%- if paginate.pages > 1 -%}
+        <nav class="pagination" aria-label="Pagination">{{ paginate | default_pagination }}</nav>
+      {%- endif -%}
+    {%- endpaginate -%}
+  </div>
+</section>
+{% schema %}
+{ "name": "Blog", "settings": [] }
+{% endschema %}

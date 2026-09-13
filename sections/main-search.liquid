@@ -1,0 +1,24 @@
+<section class="search-page page-width">
+  <form action="{{ routes.search_url }}" method="get" role="search" class="search-page__form">
+    <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search products, pages, articles..." class="search-page__input">
+    <button type="submit" class="btn btn--primary">{% render 'icon-search' %}</button>
+  </form>
+
+  {%- if search.performed -%}
+    <p class="search-page__count">{{ search.results_count }} results for "{{ search.terms }}"</p>
+    <div class="collection-page__grid">
+      {%- for item in search.results -%}
+        {%- if item.object_type == 'product' -%}
+          {% render 'favorite-product-card', product: item %}
+        {%- else -%}
+          <a href="{{ item.url }}" class="search-page__result">
+            <p>{{ item.title }}</p>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</section>
+{% schema %}
+{ "name": "Search", "settings": [] }
+{% endschema %}

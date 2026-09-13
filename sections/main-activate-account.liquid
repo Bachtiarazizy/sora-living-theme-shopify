@@ -1,0 +1,10 @@
+<section class="account-page page-width account-page--narrow">
+  <h1>Activate Account</h1>
+  {%- form 'activate_customer_password' -%}
+    {%- if form.errors -%}<p class="form-error">{{ form.errors | default_errors }}</p>{%- endif -%}
+    <label>Password<input type="password" name="customer[password]" required></label>
+    <label>Confirm password<input type="password" name="customer[password_confirmation]" required></label>
+    <button type="submit" class="btn btn--primary">Activate Account</button>
+  {%- endform -%}
+</section>
+{% schema %}{ "name": "Activate account", "settings": [] }{% endschema %}

@@ -1,0 +1,64 @@
+<section class="cart-page page-width">
+  <h1 class="cart-page__title">Your Cart</h1>
+
+  {%- if cart.item_count > 0 -%}
+    {%- form 'cart', cart, class: 'cart-page__form' -%}
+      <table class="cart-page__table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for item in cart.items -%}
+            <tr class="cart-page__row">
+              <td class="cart-page__product">
+                {%- if item.image != blank -%}
+                  <img src="{{ item.image | image_url: width: 160 }}" alt="{{ item.title | escape }}" width="80" height="80" loading="lazy">
+                {%- endif -%}
+                <div>
+                  <a href="{{ item.url }}">{{ item.product.title }}</a>
+                  {%- if item.variant.title != 'Default Title' -%}
+                    <p class="cart-page__variant">{{ item.variant.title }}</p>
+                  {%- endif -%}
+                </div>
+              </td>
+              <td>{{ item.original_price | money }}</td>
+              <td>
+                <input type="number" name="updates[{{ item.key }}]" value="{{ item.quantity }}" min="0" class="cart-page__qty-input">
+              </td>
+              <td>{{ item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+
+      <div class="cart-page__footer">
+        <p class="cart-page__subtotal">Subtotal: <strong>{{ cart.total_price | money }}</strong></p>
+        <div class="cart-page__actions">
+          <button type="submit" name="update" class="btn btn--outline">Update Cart</button>
+          <button type="submit" name="checkout" class="btn btn--primary">
+            Checkout
+            {% render 'icon-arrow-right', color: 'white' %}
+          </button>
+        </div>
+      </div>
+    {%- endform -%}
+  {%- else -%}
+    <p class="cart-page__empty">Your cart is empty.</p>
+    <a href="{{ routes.all_products_collection_url }}" class="btn btn--primary">
+      Continue Shopping
+      {% render 'icon-arrow-right', color: 'white' %}
+    </a>
+  {%- endif -%}
+</section>
+
+{% schema %}
+{
+  "name": "Cart items",
+  "settings": []
+}
+{% endschema %}

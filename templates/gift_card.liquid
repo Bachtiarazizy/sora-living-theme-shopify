@@ -1,0 +1,7 @@
+<div class="gift-card-page page-width">
+  <h1>{{ shop.name }} Gift Card</h1>
+  <p>Value: {{ gift_card.initial_value | money }}</p>
+  {%- if gift_card.enabled -%}<p>Balance: {{ gift_card.balance | money }}</p>{%- else -%}<p>This gift card is disabled.</p>{%- endif -%}
+  <p>Code: {{ gift_card.code | format_code }}</p>
+  {{ gift_card.qr_identifier | image_url: width: 200 | image_tag }}
+</div>

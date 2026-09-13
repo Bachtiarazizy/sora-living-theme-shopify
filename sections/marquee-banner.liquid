@@ -1,0 +1,38 @@
+<div class="marquee-banner" style="background-color: {{ section.settings.background }};">
+  <div class="marquee-banner__track">
+    {%- for i in (1..2) -%}
+      <div class="marquee-banner__group" aria-hidden="{% if i == 2 %}true{% else %}false{% endif %}">
+        {%- for block in section.blocks -%}
+          <span class="marquee-banner__item">{{ block.settings.text }}</span>
+          <span class="marquee-banner__dot"></span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee banner",
+  "settings": [
+    { "type": "color", "id": "background", "label": "Background color", "default": "#ffffff" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Thoughtful Design" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "item", "settings": { "text": "Thoughtful Design" } },
+      { "type": "item", "settings": { "text": "Made for Everyday Living" } },
+      { "type": "item", "settings": { "text": "Quality Materials" } }
+    ]
+  },
+  "presets": [{ "name": "Marquee banner" }]
+}
+{% endschema %}

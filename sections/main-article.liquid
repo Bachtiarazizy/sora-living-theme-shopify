@@ -1,0 +1,30 @@
+<article class="article-page page-width">
+  <p class="eyebrow">{{ article.published_at | date: '%B %d, %Y' }}{% if article.author != blank %} &middot; {{ article.author }}{% endif %}</p>
+  <h1 class="article-page__title">{{ article.title }}</h1>
+  {%- if article.image != blank -%}
+    <img class="article-page__image" src="{{ article.image | image_url: width: 1400 }}" alt="{{ article.title | escape }}" width="1400" height="800">
+  {%- endif -%}
+  <div class="article-page__content rte">{{ article.content }}</div>
+
+  {%- if blog.comments_enabled? -%}
+    <div class="article-page__comments">
+      <h2>{{ article.comments_count }} comments</h2>
+      {%- for comment in article.comments -%}
+        <div class="article-page__comment">
+          <p class="article-page__comment-author">{{ comment.author }}</p>
+          <div class="rte">{{ comment.content }}</div>
+        </div>
+      {%- endfor -%}
+      {%- form 'new_comment', article -%}
+        {%- if form.posted_successfully? -%}<p>Thanks for your comment!</p>{%- endif -%}
+        <input type="text" name="comment[author]" placeholder="Name" required>
+        <input type="email" name="comment[email]" placeholder="Email" required>
+        <textarea name="comment[body]" placeholder="Comment" required></textarea>
+        <button type="submit" class="btn btn--primary">Post Comment</button>
+      {%- endform -%}
+    </div>
+  {%- endif -%}
+</article>
+{% schema %}
+{ "name": "Article", "settings": [] }
+{% endschema %}

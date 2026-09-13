@@ -1,0 +1,78 @@
+<footer class="site-footer">
+  <div class="site-footer__card">
+    <div class="site-footer__links">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'link_column' -%}
+          <div class="footer-col" {{ block.shopify_attributes }}>
+            <p class="footer-col__title">{{ block.settings.heading }}</p>
+            <div class="footer-col__links">
+              {%- for link in block.settings.menu.links -%}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+              {%- endfor -%}
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+
+      <div class="footer-col footer-col--social">
+        <p class="footer-col__title">Follow Us</p>
+        <div class="footer-social">
+          {%- if section.settings.social_instagram != blank -%}
+            <a href="{{ section.settings.social_instagram }}" aria-label="Instagram">{% render 'icon-social', platform: 'instagram' %}</a>
+          {%- endif -%}
+          {%- if section.settings.social_x != blank -%}
+            <a href="{{ section.settings.social_x }}" aria-label="X">{% render 'icon-social', platform: 'x' %}</a>
+          {%- endif -%}
+          {%- if section.settings.social_pinterest != blank -%}
+            <a href="{{ section.settings.social_pinterest }}" aria-label="Pinterest">{% render 'icon-social', platform: 'pinterest' %}</a>
+          {%- endif -%}
+          {%- if section.settings.social_tiktok != blank -%}
+            <a href="{{ section.settings.social_tiktok }}" aria-label="TikTok">{% render 'icon-social', platform: 'tiktok' %}</a>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer__legal">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ section.settings.legal_name | default: shop.name }}. All rights reserved.</p>
+      <div class="site-footer__legal-links">
+        {%- for link in section.settings.legal_menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    { "type": "text", "id": "legal_name", "label": "Legal / brand name for copyright" },
+    { "type": "link_list", "id": "legal_menu", "label": "Legal menu", "default": "footer" },
+    { "type": "header", "content": "Social" },
+    { "type": "url", "id": "social_instagram", "label": "Instagram" },
+    { "type": "url", "id": "social_x", "label": "X" },
+    { "type": "url", "id": "social_pinterest", "label": "Pinterest" },
+    { "type": "url", "id": "social_tiktok", "label": "TikTok" }
+  ],
+  "blocks": [
+    {
+      "type": "link_column",
+      "name": "Link column",
+      "settings": [
+        { "type": "text", "id": "heading", "label": "Heading", "default": "SHOP" },
+        { "type": "link_list", "id": "menu", "label": "Menu" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "link_column", "settings": { "heading": "SHOP" } },
+      { "type": "link_column", "settings": { "heading": "SPACES" } },
+      { "type": "link_column", "settings": { "heading": "SUPPORT" } },
+      { "type": "link_column", "settings": { "heading": "ABOUT" } }
+    ]
+  }
+}
+{% endschema %}

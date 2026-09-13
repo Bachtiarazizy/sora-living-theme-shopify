@@ -1,0 +1,60 @@
+<section class="social-gallery page-width">
+  <div class="section-heading">
+    {%- if section.settings.eyebrow != blank -%}<p class="eyebrow">{{ section.settings.eyebrow }}</p>{%- endif -%}
+    {%- if section.settings.heading != blank -%}<h2>{{ section.settings.heading }}</h2>{%- endif -%}
+  </div>
+
+  <div class="social-gallery__grid">
+    {%- for block in section.blocks -%}
+      <a
+        href="{{ block.settings.link | default: '#' }}"
+        class="social-card{% if forloop.first %} social-card--large{% endif %}"
+        {{ block.shopify_attributes }}
+      >
+        {%- if block.settings.image != blank -%}
+          <img src="{{ block.settings.image | image_url: width: 800 }}" alt="" loading="lazy" width="800" height="800">
+        {%- else -%}
+          <div class="social-card__placeholder"></div>
+        {%- endif -%}
+        <div class="social-card__scrim"></div>
+        <div class="social-card__text">
+          <p class="social-card__title">{{ block.settings.title }}</p>
+          {%- if forloop.first and block.settings.body != blank -%}
+            <p class="social-card__body">{{ block.settings.body }}</p>
+          {%- endif -%}
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Social gallery",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "@SORA LIVING" },
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Life, styled naturally." }
+  ],
+  "blocks": [
+    {
+      "type": "post",
+      "name": "Post",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Natural Teak" },
+        { "type": "textarea", "id": "body", "label": "Body (first post only)" }
+      ]
+    }
+  ],
+  "default": {
+    "blocks": [
+      { "type": "post", "settings": { "title": "Natural Teak", "body": "Warm tones, distinctive grain, and naturally enduring character." } },
+      { "type": "post", "settings": { "title": "Natural Teak" } },
+      { "type": "post", "settings": { "title": "Natural Teak" } },
+      { "type": "post", "settings": { "title": "Natural Teak" } }
+    ]
+  },
+  "presets": [{ "name": "Social gallery" }]
+}
+{% endschema %}
